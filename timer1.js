@@ -13,8 +13,13 @@ This makes it beep at
 
 */
 
-// alarm beep code
-// process.stdout.write('\x07');
-
+// get array alarms from command line
 const alarms = process.argv.slice(2);
-console.log(alarms);
+
+// "set" alarms using 1000 milliseconds * each alarm
+alarms.forEach((alarm) => {
+  setTimeout(() => {
+    // trigger system sound
+    process.stdout.write('\x07');
+  }, alarm * 1000);
+});
