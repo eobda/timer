@@ -18,8 +18,11 @@ const alarms = process.argv.slice(2);
 
 // "set" alarms using 1000 milliseconds * each alarm
 alarms.forEach((alarm) => {
-  setTimeout(() => {
-    // trigger system sound
-    process.stdout.write('\x07');
-  }, alarm * 1000);
+  if (alarm > 0) {
+    setTimeout(() => {
+      // trigger system sound
+      process.stdout.write('\x07');
+//      test console log to ensure alarm is firing: console.log(`${alarm} seconds`);
+    }, alarm * 1000);
+  }
 });
