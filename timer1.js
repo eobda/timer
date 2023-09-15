@@ -22,7 +22,7 @@ alarms.forEach((alarm) => {
     setTimeout(() => {
       // trigger system sound
       process.stdout.write('\x07');
-//      test console log to ensure alarm is firing: console.log(`${alarm} seconds`);
+      console.log(`${alarm} seconds`);
     }, alarm * 1000);
   }
 });
